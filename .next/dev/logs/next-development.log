@@ -1,27 +1,335 @@
-[00:00:16.456] Server  LOG     ✓ Ready in 10.9s
-[00:00:19.471] Server  LOG     ○ Compiling / ...
-[00:00:20.593] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:00:20.854] Server  ERROR   ⨯ TypeError: Super expression must either be null or a function
-[00:00:21.002] Server  ERROR   ⨯ TypeError: Super expression must either be null or a function
-[00:00:22.414] Server  ERROR   ⨯ TypeError: Super expression must either be null or a function
-[00:00:22.572] Server  ERROR   ⨯ TypeError: Super expression must either be null or a function
-[00:00:22.719] Browser ERROR   uncaughtError: TypeError: Super expression must either be null or a function
-[00:00:40.972] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:00:41.200] Server  ERROR   ⨯ TypeError: Super expression must either be null or a function
-[00:00:41.352] Server  ERROR   ⨯ TypeError: Super expression must either be null or a function
-[00:00:41.447] Browser ERROR   uncaughtError: TypeError: Super expression must either be null or a function
-[00:00:45.910] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:00:46.055] Server  ERROR   ⨯ TypeError: Super expression must either be null or a function
-[00:00:46.236] Server  ERROR   ⨯ TypeError: Super expression must either be null or a function
-[00:00:46.313] Browser ERROR   uncaughtError: TypeError: Super expression must either be null or a function
-[00:00:57.795] Server  LOG     ✓ Compiled in 169ms
-[00:00:58.121] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:00:58.241] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:01.468] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:27.176] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:27.885] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:28.541] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:29.570] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:30.379] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:02.246] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:03.778] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:00.963] Server  LOG     ✓ Ready in 676ms
+[00:00:07.037] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:00:07.203] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:48.864] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:03:49.011] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:57.167] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:05:57.274] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:49.665] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:06:49.792] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:56.396] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:06:56.489] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:17.589] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:07:17.709] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:47.945] Browser ERROR   ./src/app/components/Header.tsx:15:12
+Parsing ecmascript source code failed
+  13 |            <div className='relative w-full h-9 bg-red-400'>
+  14 |               <Input
+> 15 |            </div>
+     |            ^
+  16 |         </div>
+  17 |       </div>
+  18 |     </header>
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:07:47.946] Browser ERROR   ./src/app/components/Header.tsx:15:13
+Parsing ecmascript source code failed
+  13 |            <div className='relative w-full h-9 bg-red-400'>
+  14 |               <Input
+> 15 |            </div>
+     |             ^^^^^
+  16 |         </div>
+  17 |       </div>
+  18 |     </header>
+
+Unterminated regexp literal
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:07:48.946] Browser ERROR   ./src/app/components/Header.tsx:16:12
+Parsing ecmascript source code failed
+  14 |            <div className='relative w-full h-9 bg-red-400'>
+  15 |               <Input
+> 16 |            </div>
+     |            ^
+  17 |         </div>
+  18 |       </div>
+  19 |     </header>
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:07:48.946] Browser ERROR   ./src/app/components/Header.tsx:16:13
+Parsing ecmascript source code failed
+  14 |            <div className='relative w-full h-9 bg-red-400'>
+  15 |               <Input
+> 16 |            </div>
+     |             ^^^^^
+  17 |         </div>
+  18 |       </div>
+  19 |     </header>
+
+Unterminated regexp literal
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:07:50.733] Server  LOG     ✓ Compiled in 291ms
+[00:08:03.097] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:08:03.234] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:38.948] Browser ERROR   Received `%s` for a non-boolean attribute `%s`.
+
+If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}. true si si true si
+[00:10:40.946] Browser ERROR   ./src/app/components/Header.tsx:23:16
+Parsing ecmascript source code failed
+  21 |               <Button
+  22 |               size={}
+> 23 |                className=''
+     |                ^^^^^^^^^
+  24 |               />
+  25 |            </div>
+  26 |         </div>
+
+Expected '</', got 'ident'
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:10:44.941] Browser ERROR   ./src/app/components/Header.tsx:22:20
+Parsing ecmascript source code failed
+  20 |               />
+  21 |               <Button
+> 22 |               size=}
+     |                    ^
+  23 |                className=''
+  24 |               />
+  25 |            </div>
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:10:50.373] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:10:50.474] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:06.944] Browser ERROR   Received `%s` for a non-boolean attribute `%s`.
+
+If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}. true var var true var
+[00:11:07.942] Browser ERROR   ./src/app/components/Header.tsx:24:16
+Parsing ecmascript source code failed
+  22 |               size='icon'
+  23 |               variant={}
+> 24 |                className=''
+     |                ^^^^^^^^^
+  25 |               />
+  26 |            </div>
+  27 |         </div>
+
+Expected '</', got 'ident'
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:11:09.951] Browser ERROR   ./src/app/components/Header.tsx:23:23
+Parsing ecmascript source code failed
+  21 |               <Button
+  22 |               size='icon'
+> 23 |               variant=}
+     |                       ^
+  24 |                className=''
+  25 |               />
+  26 |            </div>
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:11:10.951] Browser ERROR   ./src/app/components/Header.tsx:24:16
+Parsing ecmascript source code failed
+  22 |               size='icon'
+  23 |               variant=
+> 24 |                className=''
+     |                ^^^^^^^^^
+  25 |               />
+  26 |            </div>
+  27 |         </div>
+
+Expected '</', got 'ident'
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:14:03.944] Browser ERROR   ./src/app/components/Header.tsx:26:17
+Parsing ecmascript source code failed
+  24 |               className='bg-red-600 absolute right-0 top-1/2 -translate-1/2'
+  25 |             >
+> 26 |           </div>
+     |                 ^
+> 27 |         </div>
+     | ^^^^^^^^^
+  28 |       </div>
+  29 |     </header>
+  30 |   )
+
+Expected '</', got 'jsx text'
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:14:05.939] Browser ERROR   ./src/app/components/Header.tsx:26:11
+Parsing ecmascript source code failed
+  24 |               className='bg-red-600 absolute right-0 top-1/2 -translate-1/2'
+  25 |             ><
+> 26 |           </div>
+     |           ^
+  27 |         </div>
+  28 |       </div>
+  29 |     </header>
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:14:05.939] Browser ERROR   ./src/app/components/Header.tsx:26:12
+Parsing ecmascript source code failed
+  24 |               className='bg-red-600 absolute right-0 top-1/2 -translate-1/2'
+  25 |             ><
+> 26 |           </div>
+     |            ^^^^^
+  27 |         </div>
+  28 |       </div>
+  29 |     </header>
+
+Unterminated regexp literal
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:14:08.951] Browser ERROR   ./src/app/components/Header.tsx:26:11
+Parsing ecmascript source code failed
+  24 |               className='bg-red-600 absolute right-0 top-1/2 -translate-1/2'
+  25 |             ><Button
+> 26 |           </div>
+     |           ^
+  27 |         </div>
+  28 |       </div>
+  29 |     </header>
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:14:08.951] Browser ERROR   ./src/app/components/Header.tsx:26:12
+Parsing ecmascript source code failed
+  24 |               className='bg-red-600 absolute right-0 top-1/2 -translate-1/2'
+  25 |             ><Button
+> 26 |           </div>
+     |            ^^^^^
+  27 |         </div>
+  28 |       </div>
+  29 |     </header>
+
+Unterminated regexp literal
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:14:09.941] Browser ERROR   ./src/app/components/Header.tsx:26:17
+Parsing ecmascript source code failed
+  24 |               className='bg-red-600 absolute right-0 top-1/2 -translate-1/2'
+  25 |             ><Button></Button>
+> 26 |           </div>
+     |                 ^
+> 27 |         </div>
+     | ^^^^^^^^^
+  28 |       </div>
+  29 |     </header>
+  30 |   )
+
+Expected '</', got 'jsx text'
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:14:37.940] Browser ERROR   ./src/app/components/Header.tsx:27:13
+Parsing ecmascript source code failed
+  25 |             >
+  26 |               <Ser
+> 27 |             </Button>
+     |             ^
+  28 |           </div>
+  29 |         </div>
+  30 |       </div>
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:14:37.940] Browser ERROR   ./src/app/components/Header.tsx:27:14
+Parsing ecmascript source code failed
+  25 |             >
+  26 |               <Ser
+> 27 |             </Button>
+     |              ^^^^^^^^
+  28 |           </div>
+  29 |         </div>
+  30 |       </div>
+
+Unterminated regexp literal
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:14:39.950] Browser ERROR   ./src/app/components/Header.tsx:27:13
+Parsing ecmascript source code failed
+  25 |             >
+  26 |               <Serch
+> 27 |             </Button>
+     |             ^
+  28 |           </div>
+  29 |         </div>
+  30 |       </div>
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:14:39.950] Browser ERROR   ./src/app/components/Header.tsx:27:14
+Parsing ecmascript source code failed
+  25 |             >
+  26 |               <Serch
+> 27 |             </Button>
+     |              ^^^^^^^^
+  28 |           </div>
+  29 |         </div>
+  30 |       </div>
+
+Unterminated regexp literal
+
+Import trace:
+  Server Component:
+    ./src/app/components/Header.tsx
+    ./src/app/layout.tsx
+[00:14:44.079] Server  LOG     ✓ Compiled in 175ms
+[00:16:59.940] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:17:00.075] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
