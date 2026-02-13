@@ -7,10 +7,10 @@ const Banner = () => {
     return (
         <section className=" overflow-hidden">
             <div className="  bg-gradient-to-br from-emerald-50 to via-sky-50 to-white">
-                <div className="max-w-7xl mx-auto px-4 py-10 relative">
+                <div className="max-w-7xl mx-auto px-4 py-6 md:py-12  relative">
                     <div className="grid md:grid-cols-2 gap-8 itmes-center">
-                        <div>
-                            <h1 className="text-3xl md:text-4xl font-extrabold leading-tight">
+                        <div className='p-4 md:p-0'>
+                            <h1 className="text-2xl md:text-3xl font-extrabold leading-tight">
                                 নিরাপদে গেমিং অ্যাকাউন্ট ও ডিজিটাল আইটেম বেচা-কেনা করুন
                             </h1>
                             <p className="text-slate-600 mt-2">
@@ -21,7 +21,12 @@ const Banner = () => {
                                     <Input
                                         type='text'
                                         placeholder='সব গেম : Efootball,Pubg ,Free fire '
-                                        className='w-full pr-10 py-5 '
+                                        className='w-full pr-10 py-5 rounded-full hidden lg:flex'
+                                    />
+                                    <Input
+                                        type='text'
+                                        placeholder=' সব গেম...  '
+                                        className='w-full pr-10 py-5 rounded-full lg:hidden'
                                     />
                                     <Button
                                         size='icon'

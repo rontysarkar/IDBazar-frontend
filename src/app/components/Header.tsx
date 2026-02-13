@@ -147,16 +147,16 @@ const header = () => {
   return (
     <header className=' border-b bg-white text-black sticky top-0 z-50'>
       {/* desktop header */}
-      <div className='container max-w-7xl  mx-auto hidden lg:flex items-center justify-between px-4 py-8'>
-        <Link href="/" className="text-2xl font-extrabold tracking-tight flex items-center gap-2">
-          <span className="text-emerald-600">ID</span>Bazar
+      <div className='container max-w-7xl  mx-auto hidden lg:flex items-center justify-between px-4 py-6'>
+        <Link href="/" className="text-3xl font-extrabold tracking-tight flex items-center gap-2">
+          <span className="text-emerald-600 ">ID</span>Bazar
         </Link>
-        <div className='flex flex-1 itmes-center justify-center max-w-xl px-4 '>
+        <div className='flex flex-1 itmes-center justify-center max-w-xl px-4'>
           <div className='relative w-full '>
             <Input
               type='text'
               placeholder='সব গেম : Efootball,Pubg ,Free fire '
-              className='w-full pr-10'
+              className='w-full pr-10 py-6 '
             />
             <Button
               size='icon'
@@ -170,7 +170,7 @@ const header = () => {
         <div className='flex itmes-center gap-4 '>
           <Link href="/add-post">
             <Button className='bg-emerald-600 text-white hover:bg-emerald-700 rounded-full '>
-              +Post Ad
+              +POAST AD
             </Button>
           </Link>
           <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen} >
@@ -219,29 +219,17 @@ const header = () => {
               <SheetTitle className='sr-only'></SheetTitle>
             </SheetHeader>
             <div className='border-b p-4'>
-              <Link href='/' className='flex itmes-center'>
-                <Image
-                  src='/images/web-logo.png'
-                  width={150}
-                  height={40}
-                  alt='Mobile-logo'
-                  className='h-10 w-auto'
-                />
+              <Link href="/" className="text-2xl font-extrabold tracking-tight flex items-center gap-2">
+                <span className="text-emerald-600">ID</span>Bazar
               </Link>
             </div>
             <MenuItems className='text-black' />
           </SheetContent>
         </Sheet>
-        <Link href='/' className='flex itmes-center'>
-          <Image
-            src='/images/web-logo.png'
-            width={150}
-            height={40}
-            alt='desktop-logo'
-            className='h-10 w-auto'
-          />
+        <Link href="/" className="text-2xl font-extrabold tracking-tight flex items-center gap-2">
+          <span className="text-emerald-600">ID</span>Bazar
         </Link>
-        <div className='flex flex-1 itmes-center justify-center max-w-xl px-4 '>
+        <div className='hidden md:flex flex-1 itmes-center justify-center max-w-xl px-4'>
           <div className='relative w-full '>
             <Input
               type='text'

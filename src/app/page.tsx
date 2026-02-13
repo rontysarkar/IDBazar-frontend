@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Banner from "./components/Banner";
+import Categories from "./components/Categories";
+import Featured from "./components/Featured";
 
 export default function Home() {
 
@@ -45,6 +47,8 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Banner/>
+      <Categories/>
+      <Featured/>
     </main>
   );
 }

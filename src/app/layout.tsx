@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto_Mono } from "next/font/google";
+import { Roboto_Mono,Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer"
@@ -12,9 +12,14 @@ const roboto_mono = Roboto_Mono({
   display: 'swap',
 });
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter", // optional
+});
+
 export const metadata: Metadata = {
-  title: "Bazar Point",
-  description: "This is e-commerce platform where buy or sell Your any product",
+  title: "ID Bazar",
+  description: "This is e-commerce platform where buy or sell Your Gamming account",
 };
 
 export default function RootLayout({
@@ -25,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={roboto_mono.className}
+        className={inter.className}
       >
         <LayoutWrapper>
           <Header />
