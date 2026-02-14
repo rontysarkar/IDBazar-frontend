@@ -37,7 +37,8 @@ const Banner = () => {
                                     </Button>
                                 </div>
                                 <div className="flex flex-wrap gap-2 mt-3 text-sm">
-                                    <span className="text-slate-500 mt-1">Trending:</span>
+                                    <span className="text-slate-500  mt-1">Trending:</span>
+                                    <Button variant='ghost' className="border border-slate-200 hover:border-slate-500 rounded-full ">সব একাউন্ট ব্রাউজ করুন</Button>
                                     <Button variant='ghost' className="border border-slate-200 hover:border-slate-500 rounded-full ">Efootball</Button>
                                     <Button variant='ghost' className="border border-slate-200 hover:border-slate-500 rounded-full">Pubg</Button>
                                     <Button variant='ghost' className="border border-slate-200 hover:border-slate-500 rounded-full">Free Fire</Button>

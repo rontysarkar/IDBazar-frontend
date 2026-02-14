@@ -1,7 +1,8 @@
 import { Button } from '@/components/ui/button'
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const gameAccounts = [
     {
@@ -44,6 +45,8 @@ const gameAccounts = [
 ];
 
 const Featured = () => {
+
+
     return (
         <section className="max-w-7xl mx-auto px-4 py-4 pb-10">
             <div className="flex items-center justify-between mb-3">
@@ -51,7 +54,7 @@ const Featured = () => {
                 <Link href='g' ><Button className='border' variant='ghost'>আরও দেখুন</Button></Link>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {gameAccounts.map((acc, idx) => (
+                {gameAccounts.slice(0, 4).map((acc, idx) => (
                     <Link key={idx} href='#' className="rounded-2xl border border-slate-200 bg-white overflow-hidden hover:shadow-sm">
                         <div className="aspect-video bg-slate-100 relative">
                             <Image src={acc.src} width={450} height={230} alt='img' className="w-full h-full object-cover" />
@@ -65,7 +68,7 @@ const Featured = () => {
                         </div>
                     </Link>
                 ))}
-                
+
             </div>
         </section>
     )

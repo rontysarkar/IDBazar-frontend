@@ -168,11 +168,6 @@ const header = () => {
           </div>
         </div>
         <div className='flex itmes-center gap-4 '>
-          <Link href="/add-post">
-            <Button className='bg-emerald-600 text-white hover:bg-emerald-700 rounded-full '>
-              +POAST AD
-            </Button>
-          </Link>
           <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen} >
             <DropdownMenuTrigger asChild>
               <Button variant='ghost'>
@@ -192,7 +187,13 @@ const header = () => {
               {<MenuItems />}
             </DropdownMenuContent>
           </DropdownMenu>
-          <Link href='/checkout/cart'>
+          <Link href="/add-post">
+            <Button className='bg-emerald-600 text-white hover:bg-emerald-700 rounded-full '>
+              +POAST AD
+            </Button>
+          </Link>
+
+          {/* <Link href='/checkout/cart'>
             <div className='relative'>
               <Button variant='ghost' className='relative' >
                 <ShoppingCart className='w-6 h-6 mr-2' />
@@ -202,59 +203,40 @@ const header = () => {
                 <h1 className='absolute text-xs left-5 top-2 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white rounded-full px-1'>3</h1>
               )}
             </div>
-          </Link>
+          </Link> */}
         </div>
       </div>
 
       {/* Mobile header */}
-      <div className='contianer mx-aut lg:hidden flex p-5'>
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant='ghost' size='icon'>
-              <Menu className='w-6 h-6' />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side='left' className='w-80 p-0'>
-            <SheetHeader className='p-0'>
-              <SheetTitle className='sr-only'></SheetTitle>
-            </SheetHeader>
-            <div className='border-b p-4'>
-              <Link href="/" className="text-2xl font-extrabold tracking-tight flex items-center gap-2">
-                <span className="text-emerald-600">ID</span>Bazar
-              </Link>
-            </div>
-            <MenuItems className='text-black' />
-          </SheetContent>
-        </Sheet>
-        <Link href="/" className="text-2xl font-extrabold tracking-tight flex items-center gap-2">
-          <span className="text-emerald-600">ID</span>Bazar
-        </Link>
-        <div className='hidden md:flex flex-1 itmes-center justify-center max-w-xl px-4'>
-          <div className='relative w-full '>
-            <Input
-              type='text'
-              placeholder='Search Product...'
-              className='w-full pr-10'
-            />
-            <Button
-              size='icon'
-              variant='ghost'
-              className='absolute right-0 top-1/2 -translate-y-1/2'
-            >
-              <Search />
-            </Button>
-          </div>
+      <div className='contianer mx-aut lg:hidden flex justify-between items-center gap-4 p-5'>
+        <div className='flex items-center gap-4'>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Menu size={30} />
+            </SheetTrigger>
+            <SheetContent side='left' className='w-80 p-0'>
+              <SheetHeader className='p-0'>
+                <SheetTitle className='sr-only'></SheetTitle>
+              </SheetHeader>
+              <div className='border-b p-4'>
+                <Link href="/" className="text-3xl font-extrabold tracking-tight flex items-center gap-2">
+                  <span className="text-emerald-600">ID</span>Bazar
+                </Link>
+              </div>
+              <MenuItems className='text-black' />
+            </SheetContent>
+          </Sheet>
+          <Link href="/" className="text-3xl font-extrabold tracking-tight flex items-center gap-2">
+            <span className="text-emerald-600">ID</span>Bazar
+          </Link>
         </div>
-        <Link href='/checkout/cart'>
-          <div className='relative'>
-            <Button variant='ghost' className='relative' >
-              <ShoppingCart className='w-6 h-6 mr-2' />
+        <div>
+          <Link href="/add-post">
+            <Button className='bg-emerald-600 text-white text-sm hover:bg-emerald-700 rounded-full '>
+              +POAST AD
             </Button>
-            {user && (
-              <h1 className='absolute text-xs left-5 top-2 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white rounded-full px-1'>3</h1>
-            )}
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
 
     </header>

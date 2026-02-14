@@ -1,7 +1,7 @@
 import { Avatar, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import React from 'react'
+
 
 const categories = [
     {
@@ -32,14 +32,15 @@ const categories = [
 ]
 
 const Categories = () => {
+
+    
     return (
         <section className='max-w-7xl mx-auto px-4 py-4'>
-            <div className='flex justify-between items-center mb-4'>
+            <div className='flex justify-between items-center mb-4 mt-2'>
                 <h1>ক্যাটাগরি ব্রাউজ করুন</h1>
                 <Link href='#' ><Button className='border' variant='ghost'>আরও দেখুন</Button></Link>
             </div>
             <div className='grid sm:grid-cols-3 lg:grid-cols-6 gap-3  '>
-
                 {categories.map((cate, idx) => (
                     <div key={idx} className=' border border-slate-200 bg-white hover:shadow rounded-xl p-3 '>
                         <Link href='#' className='flex  justify-center items-center gap-4'>
