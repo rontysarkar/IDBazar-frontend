@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Search } from 'lucide-react'
+import Link from 'next/link'
 import React from 'react'
 
 const Banner = () => {
@@ -38,7 +39,7 @@ const Banner = () => {
                                 </div>
                                 <div className="flex flex-wrap gap-2 mt-3 text-sm">
                                     <span className="text-slate-500  mt-1">Trending:</span>
-                                    <Button variant='ghost' className="border border-slate-200 hover:border-slate-500 rounded-full ">সব একাউন্ট ব্রাউজ করুন</Button>
+                                    <Link href="/accounts"><Button variant='ghost' className="border border-slate-200 hover:border-slate-500 rounded-full ">সব একাউন্ট ব্রাউজ করুন</Button></Link>
                                     <Button variant='ghost' className="border border-slate-200 hover:border-slate-500 rounded-full ">Efootball</Button>
                                     <Button variant='ghost' className="border border-slate-200 hover:border-slate-500 rounded-full">Pubg</Button>
                                     <Button variant='ghost' className="border border-slate-200 hover:border-slate-500 rounded-full">Free Fire</Button>

@@ -30,11 +30,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={inter.className}
+        className={`${inter.className} min-h-screen flex flex-col bg-white`}
       >
         <LayoutWrapper>
           <Header />
-          {children}
+          <main className="flex-1">
+            {children}
+          </main>
           <Footer />
         </LayoutWrapper>
       </body>

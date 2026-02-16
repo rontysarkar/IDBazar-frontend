@@ -156,7 +156,7 @@ const header = () => {
             <Input
               type='text'
               placeholder='সব গেম : Efootball,Pubg ,Free fire '
-              className='w-full pr-10 py-6 '
+              className='w-full pr-10 py-5 '
             />
             <Button
               size='icon'
