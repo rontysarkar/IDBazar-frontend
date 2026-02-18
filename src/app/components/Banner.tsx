@@ -21,7 +21,7 @@ const Banner = () => {
                                 <div className='relative w-full '>
                                     <Input
                                         type='text'
-                                        placeholder='সব গেম : Efootball,Pubg ,Free fire '
+                                        placeholder='All Games : Efootball,Pubg ,Free fire '
                                         className='w-full pr-10 py-5 rounded-full hidden lg:flex'
                                     />
                                     <Input
@@ -39,7 +39,7 @@ const Banner = () => {
                                 </div>
                                 <div className="flex flex-wrap gap-2 mt-3 text-sm">
                                     <span className="text-slate-500  mt-1">Trending:</span>
-                                    <Link href="/accounts"><Button variant='ghost' className="border border-slate-200 hover:border-slate-500 rounded-full ">সব একাউন্ট ব্রাউজ করুন</Button></Link>
+                                    <Link href="/accounts"><Button variant='ghost' className="border border-slate-200 hover:border-slate-500 rounded-full ">All Games</Button></Link>
                                     <Button variant='ghost' className="border border-slate-200 hover:border-slate-500 rounded-full ">Efootball</Button>
                                     <Button variant='ghost' className="border border-slate-200 hover:border-slate-500 rounded-full">Pubg</Button>
                                     <Button variant='ghost' className="border border-slate-200 hover:border-slate-500 rounded-full">Free Fire</Button>

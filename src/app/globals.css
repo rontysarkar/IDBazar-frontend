@@ -124,3 +124,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+
+
+
+/* horizontal scrollbar hide */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

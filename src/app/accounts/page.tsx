@@ -18,40 +18,57 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
-import { gamesAccounts, gameFeturedFilters, gamesFilter } from "@/lib/constant";
 import { ChevronDown, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import postsData from "@/data/posts.json";
+import categories from "@/data/categories.json";
+import { formatDistanceToNow } from "date-fns";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const Accounts = () => {
-  const [currentGame, setCurrentGame] = useState("Select a Game");
-  const [value, setValue] = useState([100, 5000]);
   const [priceRangeToggle, setPriceRangeToggle] = useState(false);
   const [priceRangeMenuOpen, setPriceRangeMenuOpen] = useState(false);
-  const [allGames, setAllGames] = useState(gamesAccounts);
+  const [currentCategorie, setCurrentCategorie] = useState("accounts");
+  const [priceRange, setPriceRange] = useState([100, 5000]);
+  const [sortOption, setSortOption] = useState("newest");
+  const [posts, setPosts] = useState(postsData);
 
   useEffect(() => {
-    const filtered = gamesAccounts.filter(
-      (game) =>
-        (currentGame === "Select a Game" ||
-          game.game.toLowerCase().includes(currentGame.toLowerCase())) &&
-        game.price >= value[0] &&
-        game.price <= value[1],
+    const filtered = postsData.filter(
+      (post) =>
+        (currentCategorie === "accounts" ||
+          post.category.slug
+            .toLowerCase()
+            .includes(currentCategorie.toLowerCase())) &&
+        post.price >= priceRange[0] &&
+        post.price <= priceRange[1],
     );
 
-    setAllGames(filtered);
-  }, [currentGame, priceRangeToggle, gamesAccounts]);
+    setPosts(filtered);
+  }, [currentCategorie, priceRangeToggle, sortOption]);
+
+  const dateFormat = (dateString: string) => {
+    const date = new Date(dateString);
+    return formatDistanceToNow(date, { addSuffix: true });
+  };
 
   return (
-    <section className="bg-gradient-to-br from-emerald-50 to via-sky-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 pt-1">
+    <section className="bg-gradient-to-br from-emerald-50 to via-sky-50 to-white pb-5">
+      <div className="max-w-7xl mx-auto px-1 md:px-4 md:pt-1">
         <div className="mt-4 p-6 bg-white rounded-md">
           <div className="pb-4 border-b">
             <div className="relative">
               <Input
-                className="py-6 "
-                placeholder=" All Game : Efootball Pubg-Mobile  Free-fire "
+                className="py-6 focus-visible:ring-0  focus-visible:border-gray-300 "
+                placeholder="What are you looking for? "
               />
               <Button
                 variant="default"
@@ -61,39 +78,31 @@ const Accounts = () => {
               </Button>
             </div>
 
-            <div className="mt-4 flex gap-5">
-              <div className="md:max-w-40">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild className="md:min-w-40">
-                    <Button
-                      className="border w-full flex justify-between"
-                      variant="ghost"
-                    >
-                      {currentGame}
-                      <ChevronDown />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="md:min-w-40">
-                    {gamesFilter.map((game, idx) => (
-                      <DropdownMenuItem
-                        onClick={() => {
-                          setCurrentGame(game.name);
-                          // handleFilters()
-                        }}
-                        key={idx}
-                      >
-                        {game.name}
-                      </DropdownMenuItem>
+            <div className="mt-4 flex gap-2 md:gap-5 overflow-x-auto whitespace-nowrap no-scrollbar">
+              <div className="md:min-w-40 shrink-0">
+                <Select
+                  value={currentCategorie}
+                  onValueChange={setCurrentCategorie}
+                >
+                  <SelectTrigger className="w-36 md:min-w-40 text-sm">
+                    <SelectValue placeholder="Sort By" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {categories.map((cat, idx) => (
+                      <SelectItem key={idx} value={cat?.slug}>
+                        {cat?.name}
+                      </SelectItem>
                     ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                  </SelectContent>
+                </Select>
               </div>
-              <div className="max-w-60 ">
+
+              <div className="md:min-w-60 shrink-0">
                 <DropdownMenu
                   open={priceRangeMenuOpen}
                   onOpenChange={setPriceRangeMenuOpen}
                 >
-                  <DropdownMenuTrigger asChild>
+                  <DropdownMenuTrigger asChild className="">
                     <Button
                       className="border md:w-60 flex justify-between"
                       variant="ghost"
@@ -110,13 +119,13 @@ const Accounts = () => {
                           id="slider"
                           max={5000}
                           min={100}
-                          onValueChange={setValue}
-                          value={value}
+                          onValueChange={setPriceRange}
+                          value={priceRange}
                         />
 
                         <div className="flex items-center justify-between text-muted-foreground text-sm">
-                          <span>৳ {value[0]}</span>
-                          <span>৳ {value[1]}</span>
+                          <span>৳ {priceRange[0]}</span>
+                          <span>৳ {priceRange[1]}</span>
                         </div>
                       </div>
                     </DropdownMenuGroup>
@@ -140,35 +149,53 @@ const Accounts = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
+
+              <div className="md:min-w-40 shrink-0">
+                <Select value={sortOption} onValueChange={setSortOption}>
+                  <SelectTrigger className="">
+                    <SelectValue placeholder="Sort By" />
+                  </SelectTrigger>
+                  <SelectContent className="text-sm">
+                    <SelectItem value="newest">Newest First</SelectItem>
+                    <SelectItem value="oldest">Oldest First</SelectItem>
+                    <SelectItem value="price-low">
+                      Price: Low to High
+                    </SelectItem>
+                    <SelectItem value="price-high">
+                      Price: High to Low
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-white pt-4">
-            {allGames.map((acc, idx) => (
+            {posts.map((acc, idx) => (
               <Link
                 key={idx}
-                href="#"
-                className="rounded-2xl border border-slate-200 bg-white overflow-hidden hover:shadow-sm"
+                href={`/accounts/${acc.slug}`}
+                className="rounded-md border border-slate-200 bg-white overflow-hidden hover:shadow-sm"
               >
                 <div className="aspect-video bg-slate-100 relative">
                   <Image
-                    src={acc?.src}
+                    src={acc?.images[0]}
                     width={450}
                     height={230}
                     alt="img"
                     className="w-full h-full object-cover"
                   />
                   <span className="absolute top-2 left-2 text-xs px-2 py-1 rounded-full bg-emerald-100 border text-emerald-700">
-                    {acc?.game}
+                    {acc?.category.name}
                   </span>
                   {/* <span className="absolute top-2 right-2 text-xs px-2 py-1 rounded-full bg-emerald-100 text-emerald-700">{acc.game}</span> */}
                 </div>
                 <div className="p-3">
                   <h3 className="font-semibold text-lg tracking-tighter">
-                    {acc?.name}
+                    {acc?.category?.name}
                   </h3>
                   <div className="text-slate-500 text-sm py-1">
-                    Verified Seller • 2 ঘন্টা আগে
+                    {dateFormat(acc.createdAt)}
                   </div>
                   <div className="text-xl font-extrabold mt-1">
                     ৳ {acc?.price}

@@ -1,0 +1,185 @@
+[
+  {
+    "_id": "65d2f1a293b1c2d300000001",
+    "title": "Level 75 Free Fire ID | 7 Max Evo Guns",
+    "slug": "level-75-free-fire-id-7-max-evo-guns-65d2f1a2",
+    "images": ["https://i.ibb.co.com/hFdTYjVN/Screenshot-24.png"],
+    "category": { "name": "Free Fire", "slug": "free-fire" },
+    "price": 5500,
+    "description": "Sakura Bundle, HipHop, and 7 Max Evo guns. Highly rare collection.",
+    "status": "available",
+    "seller": { "name": "Ronty Sarkar", "contact": "017XXXXXXXX", "isVerified": true },
+    "createdAt": "2026-02-19T10:00:00Z"
+  },
+  {
+    "_id": "65d2f1a293b1c2d300000003",
+    "title": "3150 Strength eFootball Mobile Account",
+    "slug": "3150-strength-efootball-mobile-account-65d2f1a4",
+    "images": ["https://i.ibb.co.com/vv67mjRv/524613976-24153902140940135-5850255138136928430-n.jpg"],
+    "category": { "name": "eFootball Mobile", "slug": "efootball-mobile" },
+    "price": 2500,
+    "description": "Big Time Messi, Epic Rummenigge. Full legendary squad.",
+    "status": "available",
+    "seller": { "name": "Asif Ahmed", "contact": "019XXXXXXXX", "isVerified": true },
+    "createdAt": "2026-02-19T08:30:00Z"
+  },
+  
+  {
+    "_id": "65d2f1a293b1c2d300000005",
+    "title": "PUBG Mobile Conqueror ID | M416 Glacier",
+    "slug": "pubg-mobile-conqueror-id-m416-glacier-65d2f1a6",
+    "images": ["https://i.ibb.co.com/wHBvqyB/Screenshot-23.png"],
+    "category": { "name": "PUBG Mobile", "slug": "pubg-mobile" },
+    "price": 15000,
+    "description": "C1S1 Conqueror frame with Max Glacier M416.",
+    "status": "available",
+    "seller": { "name": "Gaming Pro", "contact": "016XXXXXXXX", "isVerified": true },
+    "createdAt": "2026-02-19T07:45:00Z"
+  },
+  {
+    "_id": "65d2f1a293b1c2d300000008",
+    "title": "Clash of Clans TH 13 | 5000 Gems",
+    "slug": "clash-of-clans-th-13-5000-gems-65d2f1a9",
+    "images": ["https://i.ibb.co.com/Nn1xvyxG/Screenshot-25.png"],
+    "category": { "name": "Clash of Clans", "slug": "clash-of-clans" },
+    "price": 3500,
+    "description": "Fresh TH 13 with 5000 gems for name change. 5 builders.",
+    "status": "available",
+    "seller": { "name": "Fahim Shahriar", "contact": "012XXXXXXXX", "isVerified": false },
+    "createdAt": "2026-02-18T11:00:00Z"
+  },
+  {
+    "_id": "65d2f1a293b1c2d300000009",
+    "title": "FIFA Mobile (FC 26) 145 OVR Team",
+    "slug": "fifa-mobile-145-ovr-team-65d2f1b0",
+    "images": ["https://i.ibb.co.com/FbfHsD61/Screenshot-27.png"],
+    "category": { "name": "FIFA Mobile", "slug": "fifa-mobile" },
+    "price": 4500,
+    "description": "Icon Ronaldo, Gullit, and Maldini in the squad.",
+    "status": "available",
+    "seller": { "name": "Tanvir Islam", "contact": "011XXXXXXXX", "isVerified": true },
+    "createdAt": "2026-02-19T04:20:00Z"
+  },
+  {
+    "_id": "65d2f1a293b1c2d300000002",
+    "title": "Free Fire Old ID | Season 2 Elite Pass",
+    "slug": "free-fire-old-id-season-2-65d2f1a3",
+    "images": ["https://i.ibb.co.com/hFdTYjVN/Screenshot-24.png"],
+    "category": { "name": "Free Fire", "slug": "free-fire" },
+    "price": 12000,
+    "description": "Authentic old ID with Hip Hop bundle and multiple incubators.",
+    "status": "available",
+    "seller": { "name": "Siam Ahmed", "contact": "018XXXXXXXX", "isVerified": false },
+    "createdAt": "2026-02-19T09:00:00Z"
+  },
+  {
+    "_id": "65d2f1a293b1c2d300000004",
+    "title": "eFootball Epic Account | 1500 Coins",
+    "slug": "efootball-epic-account-1500-coins-65d2f1a5",
+    "images": ["https://i.ibb.co.com/vv67mjRv/524613976-24153902140940135-5850255138136928430-n.jpg"],
+    "category": { "name": "eFootball Mobile", "slug": "efootball-mobile" },
+    "price": 1800,
+    "description": "Ready for division 1. 1500 coins and 5 Epic players included.",
+    "status": "sold",
+    "seller": { "name": "Tanvir Hasan", "contact": "013XXXXXXXX", "isVerified": true },
+    "createdAt": "2026-02-18T12:00:00Z"
+  },
+  {
+    "_id": "65d2f1a293b1c2d300000006",
+    "title": "PUBG Mobile X-Suit Account | Level 75",
+    "slug": "pubg-mobile-xsuit-account-65d2f1a7",
+    "images": ["https://i.ibb.co.com/wHBvqyB/Screenshot-23.png"],
+    "category": { "name": "PUBG Mobile", "slug": "pubg-mobile" },
+    "price": 9500,
+    "description": "Poseidon X-Suit (Level 2) and many mythic outfits.",
+    "status": "available",
+    "seller": { "name": "Abir Hasan", "contact": "014XXXXXXXX", "isVerified": false },
+    "createdAt": "2026-02-19T06:15:00Z"
+  },
+  {
+    "_id": "65d2f1a293b1c2d300000007",
+    "title": "TH 16 Maxed Out Clash of Clans",
+    "slug": "th-16-maxed-out-clash-of-clans-65d2f1a8",
+    "images": ["https://i.ibb.co.com/Nn1xvyxG/Screenshot-25.png"],
+    "category": { "name": "Clash of Clans", "slug": "clash-of-clans" },
+    "price": 20000,
+    "description": "All heroes and defenses maxed. Ready for professional wars.",
+    "status": "available",
+    "seller": { "name": "Sumit Saha", "contact": "015XXXXXXXX", "isVerified": true },
+    "createdAt": "2026-02-19T05:00:00Z"
+  },
+  
+  {
+    "_id": "65d2f1a293b1c2d300000010",
+    "title": "Cheap FIFA Mobile Starter | 120 OVR",
+    "slug": "cheap-fifa-mobile-starter-65d2f1b1",
+    "images": ["https://i.ibb.co.com/FbfHsD61/Screenshot-27.png"],
+    "category": { "name": "FIFA Mobile", "slug": "fifa-mobile" },
+    "price": 800,
+    "description": "Perfect for beginners. Fast growing team with 10M coins.",
+    "status": "available",
+    "seller": { "name": "Kawsar Ahmed", "contact": "010XXXXXXXX", "isVerified": false },
+    "createdAt": "2026-02-17T22:00:00Z"
+  },
+  {
+    "_id": "65d2f1a293b1c2d300000011",
+    "title": "Clash Royale Level 15 | Champion Rank",
+    "slug": "clash-royale-level-15-champion-65d2f1b2",
+    "images": ["https://i.ibb.co.com/xSPF3kWw/Screenshot-26.png"],
+    "category": { "name": "Clash Royale", "slug": "clash-royale" },
+    "price": 4000,
+    "description": "All evolution cards unlocked. High level emotes collection.",
+    "status": "available",
+    "seller": { "name": "Rakib Hasan", "contact": "013XXXXXXXX", "isVerified": true },
+    "createdAt": "2026-02-19T03:00:00Z"
+  },
+ 
+  {
+    "_id": "65d2f1a293b1c2d300000013",
+    "title": "TH 11 Clash of Clans | Builder Hall 9",
+    "slug": "th-11-clash-of-clans-bh9-65d2f1b4",
+    "images": ["https://i.ibb.co.com/Nn1xvyxG/Screenshot-25.png"],
+    "category": { "name": "Clash of Clans", "slug": "clash-of-clans" },
+    "price": 1200,
+    "description": "6th builder unlocked. Maxed out builder base.",
+    "status": "available",
+    "seller": { "name": "Imran Hossain", "contact": "019XXXXXXXX", "isVerified": false },
+    "createdAt": "2026-02-18T20:00:00Z"
+  },
+  {
+    "_id": "65d2f1a293b1c2d300000014",
+    "title": "Stacked Free Fire Account | Evo MP40 Max",
+    "slug": "stacked-free-fire-evo-mp40-max-65d2f1b5",
+    "images": ["https://i.ibb.co.com/hFdTYjVN/Screenshot-24.png"],
+    "category": { "name": "Free Fire", "slug": "free-fire" },
+    "price": 3200,
+    "description": "Yellow Poker MP40 and Max Evo Cobra MP40.",
+    "status": "pending",
+    "seller": { "name": "Jahid Khan", "contact": "016XXXXXXXX", "isVerified": true },
+    "createdAt": "2026-02-19T02:00:00Z"
+  },
+  {
+    "_id": "65d2f1a293b1c2d300000015",
+    "title": "eFootball Legendary Manager Account",
+    "slug": "efootball-legendary-manager-65d2f1b6",
+    "images": ["https://i.ibb.co.com/vv67mjRv/524613976-24153902140940135-5850255138136928430-n.jpg"],
+    "category": { "name": "eFootball Mobile", "slug": "efootball-mobile" },
+    "price": 5000,
+    "description": "Includes rare Guardiola and Cruyff manager cards.",
+    "status": "available",
+    "seller": { "name": "Saiful Islam", "contact": "015XXXXXXXX", "isVerified": true },
+    "createdAt": "2026-02-19T01:00:00Z"
+  },
+   {
+    "_id": "65d2f1a293b1c2d300000012",
+    "title": "Clash Royale | Rare Tower Skins Account",
+    "slug": "clash-royale-rare-tower-skins-65d2f1b3",
+    "images": ["https://i.ibb.co.com/xSPF3kWw/Screenshot-26.png"],
+    "category": { "name": "Clash Royale", "slug": "clash-royale" },
+    "price": 2200,
+    "description": "Includes 10+ rare tower skins and 50+ emotes.",
+    "status": "available",
+    "seller": { "name": "Mahdi Azad", "contact": "017XXXXXXXX", "isVerified": true },
+    "createdAt": "2026-02-18T15:30:00Z"
+  }
+]

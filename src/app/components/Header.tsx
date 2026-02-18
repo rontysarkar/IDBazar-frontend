@@ -155,8 +155,8 @@ const header = () => {
           <div className='relative w-full '>
             <Input
               type='text'
-              placeholder='সব গেম : Efootball,Pubg ,Free fire '
-              className='w-full pr-10 py-5 '
+              placeholder='What are you looking for?'
+              className='w-full pr-10 py-5 focus-visible:ring-0 focus-visible:border-gray-300 '
             />
             <Button
               size='icon'

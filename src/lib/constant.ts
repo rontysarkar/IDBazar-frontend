@@ -1,15 +1,6 @@
 
 
 
-export const gamesFilter = [
-  { name: "eFootball", slug: "efootball" },
-  { name: "PUBG Mobile", slug: "pubg-mobile" },
-  { name: "Free Fire", slug: "free-fire" },
-  { name: "Clash of Clan", slug: "clash-of-clan" },
-  { name: "FIFA Mobile", slug: "fifa-mobile" },
-  { name: "Clash Royale", slug: "clash-royale" },
-];
-
 export const gameFeturedFilters = {
     freefire: [
         "Evo Guns (Maxed/Level)",
@@ -88,3 +79,5 @@ export const gamesAccounts = [
         price: 400,
     },
 ];
+
+
