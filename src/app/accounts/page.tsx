@@ -32,34 +32,68 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import ProductLoader from "@/lib/ProductLoader";
 
 const Accounts = () => {
   const [priceRangeToggle, setPriceRangeToggle] = useState(false);
   const [priceRangeMenuOpen, setPriceRangeMenuOpen] = useState(false);
   const [currentCategorie, setCurrentCategorie] = useState("accounts");
-  const [priceRange, setPriceRange] = useState([100, 5000]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [priceRange, setPriceRange] = useState([100, 20000]);
   const [sortOption, setSortOption] = useState("newest");
-  const [posts, setPosts] = useState(postsData);
+  const [isLoading, setIsLoading] = useState(false);
+  const postPerPage = 15;
 
   useEffect(() => {
-    const filtered = postsData.filter(
-      (post) =>
-        (currentCategorie === "accounts" ||
-          post.category.slug
-            .toLowerCase()
-            .includes(currentCategorie.toLowerCase())) &&
-        post.price >= priceRange[0] &&
-        post.price <= priceRange[1],
-    );
+  setCurrentPage(1);
+}, [currentCategorie, priceRange, sortOption]);
 
-    setPosts(filtered);
-  }, [currentCategorie, priceRangeToggle, sortOption]);
+  const filterdPosts = postsData.filter((post) => {
+    const categoryMatch =
+      currentCategorie == "accounts" ||
+      post.category.slug.toLowerCase().includes(currentCategorie.toLowerCase());
+    const priceMatch =
+      post.price >= priceRange[0] && post.price <= priceRange[1];
+    return categoryMatch && priceMatch;
+  });
+
+  const sortedPosts = [...filterdPosts].sort((a, b) => {
+    switch (sortOption) {
+      case "newest":
+        return (
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        );
+      case "oldest":
+        return (
+          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+        );
+      case "price-low":
+        return a.price - b.price;
+      case "price-high":
+        return b.price - a.price;
+      default:
+        return 0;
+    }
+  });
+
+  
+  const totalPage = Math.ceil(sortedPosts.length / postPerPage);
+
+  const finalDisplayPosts = sortedPosts.slice(
+    (currentPage - 1) * postPerPage,
+    currentPage * postPerPage,
+  );
+
+  const handlePageChange = (page:number)=>{
+    setCurrentPage(page);
+  }
 
   const dateFormat = (dateString: string) => {
     const date = new Date(dateString);
     return formatDistanceToNow(date, { addSuffix: true });
   };
 
+  console.log(currentCategorie)
   return (
     <section className="bg-gradient-to-br from-emerald-50 to via-sky-50 to-white pb-5">
       <div className="max-w-7xl mx-auto px-1 md:px-4 md:pt-1">
@@ -113,7 +147,6 @@ const Accounts = () => {
                   <DropdownMenuContent>
                     <DropdownMenuGroup>
                       <div className="flex md:w-58 p-2 flex-col gap-2 border-b pb-4">
-                        {/* <Label htmlFor="slider">Price Range</Label> */}
                         <Slider
                           className="py-4"
                           id="slider"
@@ -169,9 +202,9 @@ const Accounts = () => {
               </div>
             </div>
           </div>
-
+          
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-white pt-4">
-            {posts.map((acc, idx) => (
+            { finalDisplayPosts.map((acc, idx) => (
               <Link
                 key={idx}
                 href={`/accounts/${acc.slug}`}
