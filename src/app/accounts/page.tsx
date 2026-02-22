@@ -33,6 +33,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import ProductLoader from "@/lib/ProductLoader";
+import { Pagination } from "../components/Pagination";
 
 const Accounts = () => {
   const [priceRangeToggle, setPriceRangeToggle] = useState(false);
@@ -42,7 +43,7 @@ const Accounts = () => {
   const [priceRange, setPriceRange] = useState([100, 20000]);
   const [sortOption, setSortOption] = useState("newest");
   const [isLoading, setIsLoading] = useState(false);
-  const postPerPage = 15;
+  const postPerPage = 1;
 
   useEffect(() => {
   setCurrentPage(1);
@@ -93,7 +94,7 @@ const Accounts = () => {
     return formatDistanceToNow(date, { addSuffix: true });
   };
 
-  console.log(currentCategorie)
+
   return (
     <section className="bg-gradient-to-br from-emerald-50 to via-sky-50 to-white pb-5">
       <div className="max-w-7xl mx-auto px-1 md:px-4 md:pt-1">
@@ -238,6 +239,7 @@ const Accounts = () => {
             ))}
           </div>
         </div>
+        <Pagination currentPage={currentPage} handlePageChange={handlePageChange} totalPage={totalPage}  />
       </div>
     </section>
   );
