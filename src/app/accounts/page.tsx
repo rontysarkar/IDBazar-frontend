@@ -43,7 +43,8 @@ const Accounts = () => {
   const [priceRange, setPriceRange] = useState([100, 20000]);
   const [sortOption, setSortOption] = useState("newest");
   const [isLoading, setIsLoading] = useState(false);
-  const postPerPage = 1;
+  const postPerPage = 6;
+
 
   useEffect(() => {
   setCurrentPage(1);
@@ -98,7 +99,16 @@ const Accounts = () => {
   return (
     <section className="bg-gradient-to-br from-emerald-50 to via-sky-50 to-white pb-5">
       <div className="max-w-7xl mx-auto px-1 md:px-4 md:pt-1">
-        <div className="mt-4 p-6 bg-white rounded-md">
+        <nav className="mt-4 p-1 flex gap-2 items-center text-gray-500">
+          <Link href='/'>
+          <p className="text-sm ">Home</p>
+          </Link>
+          <span>{'>'}</span>
+          <Link href='/accounts'>
+          <p className="text-sm">Accounts</p>
+          </Link>
+        </nav>
+        <div className=" p-6 bg-white rounded-md">
           <div className="pb-4 border-b">
             <div className="relative">
               <Input
