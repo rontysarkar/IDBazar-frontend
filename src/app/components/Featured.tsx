@@ -25,7 +25,7 @@ const Featured = () => {
                         <div className="p-3">
                             <h3 className="font-semibold text-lg tracking-tighter">{acc.title}</h3>
                             <div className="text-slate-500 text-sm py-1">Verified Seller • 2 ঘন্টা আগে</div>
-                            <div className="text-xl font-extrabold mt-1 text-emerald-500">৳ {acc.price}</div>
+                            <div className="text-xl font-extrabold mt-1 text-emerald-700">TK {acc.price}</div>
                         </div>
                     </Link>
                 ))}

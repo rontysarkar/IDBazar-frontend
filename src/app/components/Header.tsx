@@ -1,18 +1,18 @@
 "use client"
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Button } from '@/components/ui/button'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
-import { Input } from '@/components/ui/input'
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
-import { toggleLoginDialog } from '@/store/slice/userSlice'
-import { RootState } from '@/store/store'
-import { ChevronRight, Heart, Lock, LogOut, Menu, Package, PiggyBank, Search, ShoppingCart, User, User2 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-
 import React, { useState } from 'react'
+import { RootState } from '@/store/store'
 import { useDispatch, useSelector } from 'react-redux'
+import { toggleLoginDialog } from '@/store/slice/userSlice'
+import AuthPage from './AuthPage'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
+import { ChevronRight, Heart, Lock, LogOut, Menu, Package, PiggyBank, Search, ShoppingCart, User, User2 } from 'lucide-react'
 
 
 
@@ -21,16 +21,17 @@ const header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const router = useRouter();
   const dispatch = useDispatch();
-  const isLoginOpen = useSelector((state: RootState) => state.user.isLoggedIn)
+  const isLoginOpen = useSelector((state: RootState) => state.user.isLoginDialogOpen)
 
   const user = {
-    userPicture: 'h',
-    name: 'Ronty Sarkar',
-    email: 'ronty@gmail.com',
+    
   }
   const userPlaceholder = '';
 
-  const handleLogin = () => { }
+  const handleLoginClick = () => {
+    dispatch(toggleLoginDialog());
+    setIsDropdownOpen(false);
+  }
   const handleProtectionNavigation = (href: string) => {
     if (user) {
       router.push(href);
@@ -44,7 +45,7 @@ const header = () => {
 
 
   const menuItems = [
-    ...(user && user ? [
+    ...(user && user.email ? [
       {
         href: "account/profile",
         content: (
@@ -72,7 +73,7 @@ const header = () => {
       {
         icon: <Lock className='h-5 w-5' />,
         Lable: "Login/Sign up",
-        onClick: handleLogin,
+        onClick: handleLoginClick,
       },
     ]),
     {
@@ -109,14 +110,10 @@ const header = () => {
       {
         icon: <LogOut className='h-5 w-5' />,
         Lable: "Logout",
-        onClick: handleLogin,
+        onClick: handleLogout,
       },
     ] : [
-      {
-        icon: <Lock className='h-5 w-5' />,
-        Lable: "Login/Sign up",
-        onClick: handleLogin,
-      },
+      
     ])
 
   ]
@@ -193,17 +190,6 @@ const header = () => {
             </Button>
           </Link>
 
-          {/* <Link href='/checkout/cart'>
-            <div className='relative'>
-              <Button variant='ghost' className='relative' >
-                <ShoppingCart className='w-6 h-6 mr-2' />
-                Cart
-              </Button>
-              {user && (
-                <h1 className='absolute text-xs left-5 top-2 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white rounded-full px-1'>3</h1>
-              )}
-            </div>
-          </Link> */}
         </div>
       </div>
 
@@ -238,7 +224,7 @@ const header = () => {
           </Link>
         </div>
       </div>
-
+      <AuthPage isLoginOpen={isLoginOpen} setIsLoginOpen={handleLoginClick}/>
     </header>
   )
 }

@@ -51,7 +51,7 @@ const page = () => {
                   className={`relative  h-20 w-20 shrink-0 overflow-hidden rounded-lg border transition-all duration-200 ${selectedImage === idx ? "border-3 border-amber-300 scal-105" : "hover:scale-105"}`}
                 >
                   <Image
-                    src={img}
+                    src={img || ''}
                     alt={`${post?.title} ${idx}`}
                     fill
                     className="object-cover"
