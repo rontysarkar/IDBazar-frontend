@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Eye, EyeOff, Loader2, Lock, Mail } from "lucide-react";
+import { Eye, EyeOff, Loader2, Lock, Mail, User } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -23,7 +23,7 @@ interface loginFormData {
 interface signUpFormData {
   name: string;
   email: string;
-  passwrd: string;
+  password: string;
 }
 interface forgotPasswordFormData {
   email: string;
@@ -35,6 +35,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
   );
   const [showPassword, setShowPassword] = useState(false);
   const [loginLoading, setLoginLoading] = useState(false);
+  const [signUpLoading, setSignUpLoading] = useState(false);
   const {
     register: registerLogin,
     handleSubmit: handleLoginSubmit,
@@ -69,8 +70,8 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
               <TabsTrigger value="signup">Sign Up</TabsTrigger>
               <TabsTrigger value="forgot">Forgot</TabsTrigger>
             </TabsList>
-            <TabsContent value="login" className="mt-2 space-y-4">
-              <form className="space-y-4">
+            <TabsContent value="login" className="space-y-4">
+              <form className="space-y-4 mt-2">
                 <div className="relative">
                   <Input
                     {...registerLogin("email", {
@@ -125,8 +126,8 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
                 )}
                 <Button type="submit" className="w-full font-bold">
                   {loginLoading ? (
-                    <Loader2 className="animate-spin mr-2" size={20}/>
-                  ) :(
+                    <Loader2 className="animate-spin mr-2" size={20} />
+                  ) : (
                     "Login"
                   )}
                 </Button>
@@ -137,13 +138,96 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
                 <div className="flex-1 h-px bg-gray-300"></div>
               </div>
               <Button className="w-full flex items-center justify-center gap-2 bg-white text-gray-700 border border-gray-300 hover:bg-gray-50">
-                <Image 
-                src="/icons/google.svg"
-                alt="googleIcon"
-                width={20}
-                height={20}
-                />Login with Google
+                <Image
+                  src="/icons/google.svg"
+                  alt="googleIcon"
+                  width={20}
+                  height={20}
+                />
+                Login with Google
               </Button>
+            </TabsContent>
+            <TabsContent value="signup" className="space-y-4">
+              <form className="space-y-4 mt-2">
+                <div className="relative">
+                  <Input
+                    {...registerSignUp("name", {
+                      required: "Name is Required",
+                    })}
+                    placeholder="Name"
+                    type="text"
+                    className="pl-10"
+                  />
+                  <User
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+                    size={20}
+                  />
+                </div>
+                {signUpError.name && (
+                  <p className="text-red-500 text-sm">
+                    {signUpError.name.message}
+                  </p>
+                )}
+                <div className="relative">
+                  <Input
+                    {...registerSignUp("email", {
+                      required: "Email is Required",
+                    })}
+                    placeholder="Email"
+                    type="email"
+                    className="pl-10"
+                  />
+                  <Mail
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+                    size={20}
+                  />
+                </div>
+                {signUpError.email && (
+                  <p className="text-red-500 text-sm">
+                    {signUpError.email.message}
+                  </p>
+                )}
+                <div className="relative">
+                  <Input
+                    {...registerSignUp("password", {
+                      required: "Password is Required",
+                    })}
+                    placeholder="Password"
+                    type={showPassword ? "text" : "password"}
+                    className="pl-10"
+                  />
+                  <Lock
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+                    size={20}
+                  />
+                  {showPassword ? (
+                    <EyeOff
+                      onClick={() => setShowPassword(false)}
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+                      size={20}
+                    />
+                  ) : (
+                    <Eye
+                      onClick={() => setShowPassword(true)}
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+                      size={20}
+                    />
+                  )}
+                </div>
+                {signUpError.password && (
+                  <p className="text-red-500 text-sm">
+                    {signUpError.password.message}
+                  </p>
+                )}
+                <Button type="submit" className="w-full font-bold">
+                  {signUpLoading ? (
+                    <Loader2 className="animate-spin mr-2" size={20} />
+                  ) : (
+                    "Sign up"
+                  )}
+                </Button>
+              </form>
+              
             </TabsContent>
           </Tabs>
         </DialogHeader>
