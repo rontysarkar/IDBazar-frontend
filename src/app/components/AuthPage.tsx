@@ -7,7 +7,15 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Eye, EyeOff, Loader2, Lock, Mail, User } from "lucide-react";
+import {
+  CheckCircle,
+  Eye,
+  EyeOff,
+  Loader2,
+  Lock,
+  Mail,
+  User,
+} from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -36,6 +44,8 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [loginLoading, setLoginLoading] = useState(false);
   const [signUpLoading, setSignUpLoading] = useState(false);
+  const [forgotPasswordLoading, setForgotPasswordLoading] = useState(false);
+  const [forgotPasswordSuccess, setForgotPasswordSuccess] = useState(true);
   const {
     register: registerLogin,
     handleSubmit: handleLoginSubmit,
@@ -219,7 +229,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
                     {signUpError.password.message}
                   </p>
                 )}
-                <Button type="submit" className="w-full font-bold">
+                <Button type="submit" className="w-full font-bold my-5">
                   {signUpLoading ? (
                     <Loader2 className="animate-spin mr-2" size={20} />
                   ) : (
@@ -227,7 +237,59 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
                   )}
                 </Button>
               </form>
-              
+            </TabsContent>
+            <TabsContent value="forgot" className="space-y-4">
+              {!forgotPasswordSuccess ? (
+                <form className="space-y-4 mt-2">
+                  <div className="relative">
+                    <Input
+                      {...registerForgotPassword("email", {
+                        required: "Email is Required",
+                      })}
+                      placeholder="Email"
+                      type="email"
+                      className="pl-10"
+                    />
+                    <Mail
+                      className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 "
+                      size={20}
+                    />
+                  </div>
+                  {forgotPasswordError.email && (
+                    <p className="text-red-500 text-sm">
+                      {forgotPasswordError.email.message}
+                    </p>
+                  )}
+                  <Button className="w-full font-bold">
+                    {forgotPasswordLoading ? (
+                      <Loader2 className="animate-spin mr-2" />
+                    ) : (
+                      "Send Reset Link"
+                    )}
+                  </Button>
+                </form>
+              ) : (
+                <div className="text-center space-y-4">
+                  <CheckCircle
+                    className="text-green-500 mx-auto my-2"
+                    size={40}
+                  />
+                  <h1 className="text-xl font-semibold text-gray-700">
+                    Reset Link Send
+                  </h1>
+                  <p className="text-gray-500">
+                    We've sent a password reset link to your email.Please check
+                    your inbox and follow the instructions to reset your
+                    password.
+                  </p>
+                  <Button
+                    onClick={() => setForgotPasswordSuccess(false)}
+                    className="w-full"
+                  >
+                    Send Another Link to Email
+                  </Button>
+                </div>
+              )}
             </TabsContent>
           </Tabs>
         </DialogHeader>
