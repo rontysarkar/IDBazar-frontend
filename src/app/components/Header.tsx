@@ -82,19 +82,9 @@ const header = () => {
       onClick: () => handleProtectionNavigation('/account/profile'),
     },
     {
-      icon: <Package className='h-5 w-5' />,
-      Lable: "My Orders",
-      onClick: () => handleProtectionNavigation('/account/orders'),
-    },
-    {
       icon: <PiggyBank className='h-5 w-5' />,
-      Lable: "My Selling Orders",
+      Lable: "My Post",
       onClick: () => handleProtectionNavigation('/account/selling-orders'),
-    },
-    {
-      icon: <ShoppingCart className='h-5 w-5' />,
-      Lable: "Cart",
-      onClick: () => handleProtectionNavigation('/checkout/cart'),
     },
     {
       icon: <Heart className='h-5 w-5' />,
@@ -167,7 +157,7 @@ const header = () => {
         <div className='flex itmes-center gap-4 '>
           <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen} >
             <DropdownMenuTrigger asChild>
-              <Button variant='ghost'>
+              <Button variant='ghost' className='bg-gray-100  '>
                 <Avatar>
                   {user?.userPicture ? (
                     <AvatarImage className='w-8 h-8 rounded-full' src="https://github.com/shadcn.png" alt='user image' />
@@ -185,7 +175,7 @@ const header = () => {
             </DropdownMenuContent>
           </DropdownMenu>
           <Link href="/add-post">
-            <Button className='bg-emerald-600 text-white hover:bg-emerald-700 rounded-full '>
+            <Button className='bg-emerald-600 text-white hover:bg-emerald-700 ml-5 '>
               +POAST AD
             </Button>
           </Link>
