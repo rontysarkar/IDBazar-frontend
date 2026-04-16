@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { RootState } from '@/store/store'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleLoginDialog } from '@/store/slice/userSlice'
+import { logout, toggleLoginDialog } from '@/store/slice/userSlice'
 import AuthPage from './AuthPage'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -13,6 +13,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { ChevronRight, Heart, Lock, LogOut, Menu, Package, PiggyBank, Search, ShoppingCart, User, User2 } from 'lucide-react'
+import { useLogoutMutation } from '@/store/api'
+import toast from 'react-hot-toast'
 
 
 
@@ -24,6 +26,7 @@ const header = () => {
   const isLoginOpen = useSelector((state: RootState) => state.user.isLoginDialogOpen)
 
   const user = useSelector((state:RootState)=>state.user.user);
+  const [logoutMutation] = useLogoutMutation();
   const handleLoginClick = () => {
     dispatch(toggleLoginDialog());
     setIsDropdownOpen(false);
@@ -37,7 +40,16 @@ const header = () => {
       setIsDropdownOpen(false);
     }
   }
-  const handleLogout = () => { }
+  const handleLogout = async() => { 
+    try {
+      await logoutMutation({});
+      dispatch(logout());
+      toast.success("user logged out successfully")
+      setIsDropdownOpen(false);
+    } catch (error) {
+      toast.error("faild to logged out")
+    }
+  }
 
 
   const menuItems = [
@@ -148,8 +160,8 @@ const header = () => {
         <div className='flex itmes-center gap-4 '>
           <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen} >
             <DropdownMenuTrigger asChild>
-              <Button variant='ghost' className='bg-gray-100  '>
-                <Avatar>
+              <Button variant='ghost' className='bg-gray-100'>
+                <Avatar >
                   {/* {user?.userPicture ? (
                     <AvatarImage className='w-8 h-8 rounded-full' src="https://github.com/shadcn.png" alt='user image' />
                   ) : userPlaceholder ? (
@@ -159,7 +171,7 @@ const header = () => {
                     <User className='ml-2 mt-2' />
                   )
                   } */}
-                  <User className='ml-2 mt-2' />
+                  <User className='ml-2 mt-2 '  />
                 </Avatar>
                 Account
               </Button>

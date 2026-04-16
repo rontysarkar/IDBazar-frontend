@@ -8,6 +8,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
+  BASE_URL,
   useForgotPasswordMutation,
   useLoginMutation,
   useRegisterMutation,
@@ -23,6 +24,7 @@ import {
   User,
 } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -52,13 +54,15 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [loginLoading, setLoginLoading] = useState(false);
   const [signUpLoading, setSignUpLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
   const [forgotPasswordLoading, setForgotPasswordLoading] = useState(false);
   const [forgotPasswordSuccess, setForgotPasswordSuccess] = useState(true);
-  const [register] = useRegisterMutation();
-  const [login] = useLoginMutation();
-  const [forgotPassword] = useForgotPasswordMutation();
+  const [registerMutation] = useRegisterMutation();
+  const [loginMutation] = useLoginMutation();
+  const [forgotPasswordMutation] = useForgotPasswordMutation();
 
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const {
     register: registerLogin,
@@ -79,7 +83,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
   const onSubmitSignUp = async (data: signUpFormData) => {
     setSignUpLoading(true);
     try {
-      const result = await register(data).unwrap();
+      const result = await registerMutation(data).unwrap();
       console.log("This is result", result);
       if (result.success) {
         toast.success(
@@ -97,13 +101,12 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
   const onSubmitLogin = async (data: loginFormData) => {
     setLoginLoading(true);
     try {
-      const result = await login(data).unwrap();
+      const result = await loginMutation(data).unwrap();
       if (result.success) {
         toast.success("User Login Successfully");
         dispatch(toggleLoginDialog());
         dispatch(authStatus());
-        // window.location.reload();
-        
+        window.location.reload();
       }
     } catch (error) {
       toast.error("Email or password is incorrect");
@@ -111,6 +114,35 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
       setLoginLoading(false);
     }
   };
+
+  const onSubmitGoogleLogin = async () => {
+    setGoogleLoading(true);
+    try {
+      router.push(`${BASE_URL}/auth/google`);
+      dispatch(authStatus());
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setGoogleLoading(false);
+    }
+  };
+
+  const onSubmitForgotPassword = async(data:forgotPasswordFormData)=>{
+    setForgotPasswordLoading(true);
+    try {
+      const result = await forgotPasswordMutation(data.email).unwrap();
+      if(result.success){
+        toast.success("Password reset link sent to email")
+        setForgotPasswordSuccess(true);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Faild to Rest passowrd,Please try later")
+    }
+    finally{
+      setForgotPasswordLoading(false);
+    }
+  }
 
   return (
     <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
@@ -131,7 +163,10 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
               <TabsTrigger value="forgot">Forgot</TabsTrigger>
             </TabsList>
             <TabsContent value="login" className="space-y-4">
-              <form onSubmit={handleLoginSubmit(onSubmitLogin)} className="space-y-4 mt-2">
+              <form
+                onSubmit={handleLoginSubmit(onSubmitLogin)}
+                className="space-y-4 mt-2"
+              >
                 <div className="relative">
                   <Input
                     {...registerLogin("email", {
@@ -197,7 +232,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
                 <p className="mx-2 text-gray-500 text-sm">Or</p>
                 <div className="flex-1 h-px bg-gray-300"></div>
               </div>
-              <Button className="w-full flex items-center justify-center gap-2 bg-white text-gray-700 border border-gray-300 hover:bg-gray-50">
+              <Button onClick={onSubmitGoogleLogin} className="w-full flex items-center justify-center gap-2 bg-white text-gray-700 border border-gray-300 hover:bg-gray-50">
                 <Image
                   src="/icons/google.svg"
                   alt="googleIcon"
@@ -293,7 +328,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
             </TabsContent>
             <TabsContent value="forgot" className="space-y-4">
               {!forgotPasswordSuccess ? (
-                <form className="space-y-4 mt-2">
+                <form className="space-y-4 mt-2" onSubmit={handleForgotPasswordSubmit(onSubmitForgotPassword)}>
                   <div className="relative">
                     <Input
                       {...registerForgotPassword("email", {
