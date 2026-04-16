@@ -23,11 +23,7 @@ const header = () => {
   const dispatch = useDispatch();
   const isLoginOpen = useSelector((state: RootState) => state.user.isLoginDialogOpen)
 
-  const user = {
-    
-  }
-  const userPlaceholder = '';
-
+  const user = useSelector((state:RootState)=>state.user.user);
   const handleLoginClick = () => {
     dispatch(toggleLoginDialog());
     setIsDropdownOpen(false);
@@ -51,12 +47,7 @@ const header = () => {
         content: (
           <div className='flex space-x-4 items-center p-2 border-b'>
             <Avatar>
-              {user?.userPicture ? (
-                <AvatarImage className='w-12 h-12 rounded-full' src="https://github.com/shadcn.png" alt='user image' />
-              ) : (
-                <AvatarFallback className='text-black'>{userPlaceholder}</AvatarFallback>
-              )
-              }
+              <User className=' ' />
             </Avatar>
             <div className='flex flex-col'>
               <span className='font-semibold text-md'>
@@ -96,7 +87,7 @@ const header = () => {
       Lable: "About Us",
       href: '/about-us'
     },
-    ...(user && user.email ? [
+    ...(user && user ? [
       {
         icon: <LogOut className='h-5 w-5' />,
         Lable: "Logout",
@@ -159,15 +150,18 @@ const header = () => {
             <DropdownMenuTrigger asChild>
               <Button variant='ghost' className='bg-gray-100  '>
                 <Avatar>
-                  {user?.userPicture ? (
+                  {/* {user?.userPicture ? (
                     <AvatarImage className='w-8 h-8 rounded-full' src="https://github.com/shadcn.png" alt='user image' />
                   ) : userPlaceholder ? (
                     <AvatarFallback className='text-black'>{userPlaceholder}</AvatarFallback>
+                    
                   ) : (
                     <User className='ml-2 mt-2' />
                   )
-                  }
+                  } */}
+                  <User className='ml-2 mt-2' />
                 </Avatar>
+                Account
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>

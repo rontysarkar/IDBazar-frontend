@@ -8,6 +8,12 @@ import {
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
+  useForgotPasswordMutation,
+  useLoginMutation,
+  useRegisterMutation,
+} from "@/store/api";
+import { authStatus, toggleLoginDialog } from "@/store/slice/userSlice";
+import {
   CheckCircle,
   Eye,
   EyeOff,
@@ -19,6 +25,8 @@ import {
 import Image from "next/image";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
 
 interface AuthPageProps {
   isLoginOpen: boolean;
@@ -46,6 +54,12 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
   const [signUpLoading, setSignUpLoading] = useState(false);
   const [forgotPasswordLoading, setForgotPasswordLoading] = useState(false);
   const [forgotPasswordSuccess, setForgotPasswordSuccess] = useState(true);
+  const [register] = useRegisterMutation();
+  const [login] = useLoginMutation();
+  const [forgotPassword] = useForgotPasswordMutation();
+
+  const dispatch = useDispatch();
+
   const {
     register: registerLogin,
     handleSubmit: handleLoginSubmit,
@@ -61,6 +75,42 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
     handleSubmit: handleForgotPasswordSubmit,
     formState: { errors: forgotPasswordError },
   } = useForm<forgotPasswordFormData>();
+
+  const onSubmitSignUp = async (data: signUpFormData) => {
+    setSignUpLoading(true);
+    try {
+      const result = await register(data).unwrap();
+      console.log("This is result", result);
+      if (result.success) {
+        toast.success(
+          "Verification Link Sent To Email, Please verify your email",
+        );
+        dispatch(toggleLoginDialog());
+      }
+    } catch (error) {
+      toast.error("Email alreday registered");
+    } finally {
+      setSignUpLoading(false);
+    }
+  };
+
+  const onSubmitLogin = async (data: loginFormData) => {
+    setLoginLoading(true);
+    try {
+      const result = await login(data).unwrap();
+      if (result.success) {
+        toast.success("User Login Successfully");
+        dispatch(toggleLoginDialog());
+        dispatch(authStatus());
+        // window.location.reload();
+        
+      }
+    } catch (error) {
+      toast.error("Email or password is incorrect");
+    } finally {
+      setLoginLoading(false);
+    }
+  };
 
   return (
     <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
@@ -81,7 +131,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
               <TabsTrigger value="forgot">Forgot</TabsTrigger>
             </TabsList>
             <TabsContent value="login" className="space-y-4">
-              <form className="space-y-4 mt-2">
+              <form onSubmit={handleLoginSubmit(onSubmitLogin)} className="space-y-4 mt-2">
                 <div className="relative">
                   <Input
                     {...registerLogin("email", {
@@ -158,7 +208,10 @@ const AuthPage: React.FC<AuthPageProps> = ({ isLoginOpen, setIsLoginOpen }) => {
               </Button>
             </TabsContent>
             <TabsContent value="signup" className="space-y-4">
-              <form className="space-y-4 mt-2">
+              <form
+                onSubmit={handleSignUpSubmit(onSubmitSignUp)}
+                className="space-y-4 mt-2"
+              >
                 <div className="relative">
                   <Input
                     {...registerSignUp("name", {
