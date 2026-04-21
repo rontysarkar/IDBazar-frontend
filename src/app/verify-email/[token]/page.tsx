@@ -3,14 +3,14 @@ import { useVerifyEmailMutation } from "@/store/api";
 import { authStatus, setEmailVarified } from "@/store/slice/userSlice";
 import { RootState } from "@/store/store";
 import { CheckCircle, Loader2 } from "lucide-react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 
 const page: React.FC = () => {
   const { token } = useParams<{ token: string }>();
-  console.log(token);
+  const router = useRouter();
   const dispatch = useDispatch();
   const [verifyEmail] = useVerifyEmailMutation();
   const isVerifyEmail = useSelector(
@@ -82,6 +82,11 @@ const page: React.FC = () => {
           <p className="text-gray-500">
             Your Email is already verified.You can use our services
           </p>
+          <button
+          onClick={()=> router.push('/')}
+           className="bg-blue-500 hover:bg-blue-700 px-4 py-1 rounded-full mt-3 text-white ">
+            Go to homepage
+          </button>
         </div>
       )}
     </div>
