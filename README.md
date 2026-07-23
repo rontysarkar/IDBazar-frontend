@@ -6,6 +6,8 @@ The platform is designed to provide a secure and user-friendly environment for d
 
 > 🚧 **Project Status:** Currently in active development.
 
+🔗 **Backend Repository:** [Explore the ID Bazar Backend Repo](https://github.com/rontysarkar/IDBazar-Backend)
+
 ## ✨ Key Features
 
 * User authentication
